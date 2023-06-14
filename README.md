@@ -99,6 +99,9 @@ You should now have an entity called `sensor.current_summation_delivered_value` 
 1. Go to `Settings` > `Dashboards` > `Energy`.
 2. Click the `ADD CONSUMPTION` button. Select the `sensor.current_summation_delivered_value` entity. 
 
+![Home Assistant Energy Dashboard](img/energy_dashboard.png)
+
 ## Prices and Tariff Guide
 
 Coming soon ...
+
