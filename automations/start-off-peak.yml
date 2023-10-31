@@ -1,0 +1,12 @@
+alias: Peak Automation Off-peak Start
+description: ""
+trigger:
+  - platform: time
+    at: input_datetime.off_peak_energy_start
+action:
+  - service: select.select_option
+    data:
+      option: offpeak
+    target:
+      entity_id: select.xcel_energy_grid
+mode: single

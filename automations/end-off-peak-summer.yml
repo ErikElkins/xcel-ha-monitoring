@@ -1,0 +1,22 @@
+alias: Peak Automation Off-peak End Summer
+description: ""
+trigger:
+  - platform: time
+    at: input_datetime.off_peak_energy_end
+condition:
+  - condition: and
+    conditions:
+      - condition: template
+        value_template: "{{ now().month >= 6 and now().month <= 9 and now().weekday() < 5 }}"
+        alias: Is it a summer weekday?
+      - condition: template
+        value_template: "{{ not (now().month == 7 and now().day == 4) }}"
+        alias: Is it not a holiday?
+    alias: " Is it a valid peak day?"
+action:
+  - service: select.select_option
+    data:
+      option: peaksummmer
+    target:
+      entity_id: select.xcel_energy_grid
+mode: single
