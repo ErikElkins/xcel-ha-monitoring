@@ -1,0 +1,349 @@
+alias: Monthly Set Energy Prices
+description: ""
+trigger:
+  - platform: time
+    at: "00:00:00"
+condition:
+  - condition: template
+    value_template: "{{ now().day == 1 }}"
+    alias: Is it the first day of the month?
+action:
+  - alias: Choose which month?
+    choose:
+      - conditions:
+          - condition: template
+            value_template: "{{ now().month == 1 }}"
+        sequence:
+          - service: input_number.set_value
+            data_template:
+              value: >-
+                {{ float(states('input_number.base_off_peak_price')) +
+                float(states('input_number.month_january_fuel_cost')) |
+                float(0.04) }}
+            target:
+              entity_id: input_number.off_peak_price
+          - service: input_number.set_value
+            data_template:
+              value: >-
+                {{ float(states('input_number.base_peak_off_summer_price')) +
+                float(states('input_number.month_january_fuel_cost')) |
+                float(0.04) }}
+            target:
+              entity_id: input_number.peak_off_summer_price
+          - service: input_number.set_value
+            data_template:
+              value: |-
+                {{ float(states('input_number.base_peak_summer_price')) +
+                  float(states('input_number.month_january_fuel_cost')) | float(0.04) }}
+            target:
+              entity_id: input_number.peak_summer_price
+        alias: Is It January?
+      - conditions:
+          - condition: template
+            value_template: "{{ now().month == 2 }}"
+        sequence:
+          - service: input_number.set_value
+            data_template:
+              value: >-
+                {{ float(states('input_number.base_off_peak_price')) +
+                float(states('input_number.month_february_fuel_cost')) |
+                float(0.04) }}
+            target:
+              entity_id: input_number.off_peak_price
+          - service: input_number.set_value
+            data_template:
+              value: >-
+                {{ float(states('input_number.base_peak_off_summer_price')) +
+                float(states('input_number.month_february_fuel_cost')) |
+                float(0.04) }}
+            target:
+              entity_id: input_number.peak_off_summer_price
+          - service: input_number.set_value
+            data_template:
+              value: |-
+                {{ float(states('input_number.base_peak_summer_price')) +
+                  float(states('input_number.month_february_fuel_cost')) | float(0.04) }}
+            target:
+              entity_id: input_number.peak_summer_price
+        alias: Is It February?
+      - conditions:
+          - condition: template
+            value_template: "{{ now().month == 3 }}"
+        sequence:
+          - service: input_number.set_value
+            data_template:
+              value: >-
+                {{ float(states('input_number.base_off_peak_price')) +
+                float(states('input_number.month_march_fuel_cost')) |
+                float(0.04) }}
+            target:
+              entity_id: input_number.off_peak_price
+          - service: input_number.set_value
+            data_template:
+              value: >-
+                {{ float(states('input_number.base_peak_off_summer_price')) +
+                float(states('input_number.month_march_fuel_cost')) |
+                float(0.04) }}
+            target:
+              entity_id: input_number.peak_off_summer_price
+          - service: input_number.set_value
+            data_template:
+              value: |-
+                {{ float(states('input_number.base_peak_summer_price')) +
+                  float(states('input_number.month_march_fuel_cost')) | float(0.04) }}
+            target:
+              entity_id: input_number.peak_summer_price
+        alias: Is It March?
+      - conditions:
+          - condition: template
+            value_template: "{{ now().month == 4 }}"
+        sequence:
+          - service: input_number.set_value
+            data_template:
+              value: >-
+                {{ float(states('input_number.base_off_peak_price')) +
+                float(states('input_number.month_april_fuel_cost')) |
+                float(0.04) }}
+            target:
+              entity_id: input_number.off_peak_price
+          - service: input_number.set_value
+            data_template:
+              value: >-
+                {{ float(states('input_number.base_peak_off_summer_price')) +
+                float(states('input_number.month_april_fuel_cost')) |
+                float(0.04) }}
+            target:
+              entity_id: input_number.peak_off_summer_price
+          - service: input_number.set_value
+            data_template:
+              value: |-
+                {{ float(states('input_number.base_peak_summer_price')) +
+                  float(states('input_number.month_april_fuel_cost')) | float(0.04) }}
+            target:
+              entity_id: input_number.peak_summer_price
+        alias: Is It April?
+      - conditions:
+          - condition: template
+            value_template: "{{ now().month == 5 }}"
+        sequence:
+          - service: input_number.set_value
+            data_template:
+              value: >-
+                {{ float(states('input_number.base_off_peak_price')) +
+                float(states('input_number.month_may_fuel_cost')) | float(0.04)
+                }}
+            target:
+              entity_id: input_number.off_peak_price
+          - service: input_number.set_value
+            data_template:
+              value: >-
+                {{ float(states('input_number.base_peak_off_summer_price')) +
+                float(states('input_number.month_may_fuel_cost')) | float(0.04)
+                }}
+            target:
+              entity_id: input_number.peak_off_summer_price
+          - service: input_number.set_value
+            data_template:
+              value: |-
+                {{ float(states('input_number.base_peak_summer_price')) +
+                  float(states('input_number.month_may_fuel_cost')) | float(0.04) }}
+            target:
+              entity_id: input_number.peak_summer_price
+        alias: Is It May?
+      - conditions:
+          - condition: template
+            value_template: "{{ now().month == 6 }}"
+        sequence:
+          - service: input_number.set_value
+            data_template:
+              value: >-
+                {{ float(states('input_number.base_off_peak_price')) +
+                float(states('input_number.month_june_fuel_cost')) | float(0.04)
+                }}
+            target:
+              entity_id: input_number.off_peak_price
+          - service: input_number.set_value
+            data_template:
+              value: >-
+                {{ float(states('input_number.base_peak_off_summer_price')) +
+                float(states('input_number.month_june_fuel_cost')) | float(0.04)
+                }}
+            target:
+              entity_id: input_number.peak_off_summer_price
+          - service: input_number.set_value
+            data_template:
+              value: |-
+                {{ float(states('input_number.base_peak_summer_price')) +
+                  float(states('input_number.month_june_fuel_cost')) | float(0.04) }}
+            target:
+              entity_id: input_number.peak_summer_price
+        alias: Is It June?
+      - conditions:
+          - condition: template
+            value_template: "{{ now().month == 7 }}"
+        sequence:
+          - service: input_number.set_value
+            data_template:
+              value: >-
+                {{ float(states('input_number.base_off_peak_price')) +
+                float(states('input_number.month_july_fuel_cost')) | float(0.04)
+                }}
+            target:
+              entity_id: input_number.off_peak_price
+          - service: input_number.set_value
+            data_template:
+              value: >-
+                {{ float(states('input_number.base_peak_off_summer_price')) +
+                float(states('input_number.month_july_fuel_cost')) | float(0.04)
+                }}
+            target:
+              entity_id: input_number.peak_off_summer_price
+          - service: input_number.set_value
+            data_template:
+              value: |-
+                {{ float(states('input_number.base_peak_summer_price')) +
+                  float(states('input_number.month_july_fuel_cost')) | float(0.04) }}
+            target:
+              entity_id: input_number.peak_summer_price
+        alias: Is It July?
+      - conditions:
+          - condition: template
+            value_template: "{{ now().month == 8 }}"
+        sequence:
+          - service: input_number.set_value
+            data_template:
+              value: >-
+                {{ float(states('input_number.base_off_peak_price')) +
+                float(states('input_number.month_august_fuel_cost')) |
+                float(0.04) }}
+            target:
+              entity_id: input_number.off_peak_price
+          - service: input_number.set_value
+            data_template:
+              value: >-
+                {{ float(states('input_number.base_peak_off_summer_price')) +
+                float(states('input_number.month_august_fuel_cost')) |
+                float(0.04) }}
+            target:
+              entity_id: input_number.peak_off_summer_price
+          - service: input_number.set_value
+            data_template:
+              value: |-
+                {{ float(states('input_number.base_peak_summer_price')) +
+                  float(states('input_number.month_august_fuel_cost')) | float(0.04) }}
+            target:
+              entity_id: input_number.peak_summer_price
+        alias: Is It August?
+      - conditions:
+          - condition: template
+            value_template: "{{ now().month == 9 }}"
+        sequence:
+          - service: input_number.set_value
+            data_template:
+              value: >-
+                {{ float(states('input_number.base_off_peak_price')) +
+                float(states('input_number.month_september_fuel_cost')) |
+                float(0.04) }}
+            target:
+              entity_id: input_number.off_peak_price
+          - service: input_number.set_value
+            data_template:
+              value: >-
+                {{ float(states('input_number.base_peak_off_summer_price')) +
+                float(states('input_number.month_september_fuel_cost')) |
+                float(0.04) }}
+            target:
+              entity_id: input_number.peak_off_summer_price
+          - service: input_number.set_value
+            data_template:
+              value: |-
+                {{ float(states('input_number.base_peak_summer_price')) +
+                  float(states('input_number.month_september_fuel_cost')) | float(0.04) }}
+            target:
+              entity_id: input_number.peak_summer_price
+        alias: Is It September?
+      - conditions:
+          - condition: template
+            value_template: "{{ now().month == 10 }}"
+        sequence:
+          - service: input_number.set_value
+            data_template:
+              value: >-
+                {{ float(states('input_number.base_off_peak_price')) +
+                float(states('input_number.month_october_fuel_cost')) |
+                float(0.04) }}
+            target:
+              entity_id: input_number.off_peak_price
+          - service: input_number.set_value
+            data_template:
+              value: >-
+                {{ float(states('input_number.base_peak_off_summer_price')) +
+                float(states('input_number.month_october_fuel_cost')) |
+                float(0.04) }}
+            target:
+              entity_id: input_number.peak_off_summer_price
+          - service: input_number.set_value
+            data_template:
+              value: |-
+                {{ float(states('input_number.base_peak_summer_price')) +
+                  float(states('input_number.month_october_fuel_cost')) | float(0.04) }}
+            target:
+              entity_id: input_number.peak_summer_price
+        alias: Is It October?
+      - conditions:
+          - condition: template
+            value_template: "{{ now().month == 11 }}"
+        sequence:
+          - service: input_number.set_value
+            data_template:
+              value: >-
+                {{ float(states('input_number.base_off_peak_price')) +
+                float(states('input_number.month_november_fuel_cost')) |
+                float(0.04) }}
+            target:
+              entity_id: input_number.off_peak_price
+          - service: input_number.set_value
+            data_template:
+              value: >-
+                {{ float(states('input_number.base_peak_off_summer_price')) +
+                float(states('input_number.month_november_fuel_cost')) |
+                float(0.04) }}
+            target:
+              entity_id: input_number.peak_off_summer_price
+          - service: input_number.set_value
+            data_template:
+              value: |-
+                {{ float(states('input_number.base_peak_summer_price')) +
+                  float(states('input_number.month_november_fuel_cost')) | float(0.04) }}
+            target:
+              entity_id: input_number.peak_summer_price
+        alias: Is It November?
+      - conditions:
+          - condition: template
+            value_template: "{{ now().month == 12 }}"
+        sequence:
+          - service: input_number.set_value
+            data_template:
+              value: >-
+                {{ float(states('input_number.base_off_peak_price')) +
+                float(states('input_number.month_december_fuel_cost')) |
+                float(0.04) }}
+            target:
+              entity_id: input_number.off_peak_price
+          - service: input_number.set_value
+            data_template:
+              value: >-
+                {{ float(states('input_number.base_peak_off_summer_price')) +
+                float(states('input_number.month_december_fuel_cost')) |
+                float(0.04) }}
+            target:
+              entity_id: input_number.peak_off_summer_price
+          - service: input_number.set_value
+            data_template:
+              value: |-
+                {{ float(states('input_number.base_peak_summer_price')) +
+                  float(states('input_number.month_december_fuel_cost')) | float(0.04) }}
+            target:
+              entity_id: input_number.peak_summer_price
+        alias: Is It December?
+mode: single

@@ -1,0 +1,81 @@
+alias: Set Energy Prices
+description: ""
+trigger: []
+condition: []
+action:
+  - service: input_number.set_value
+    data:
+      value: 0.0417
+    target:
+      entity_id: input_number.base_off_peak_price
+  - service: input_number.set_value
+    data:
+      value: 0.16508
+    target:
+      entity_id: input_number.base_peak_off_summer_price
+  - service: input_number.set_value
+    data:
+      value: 0.20497
+    target:
+      entity_id: input_number.base_peak_summer_price
+  - service: input_number.set_value
+    data:
+      value: 0.03308
+    target:
+      entity_id: input_number.month_january_fuel_cost
+  - service: input_number.set_value
+    data:
+      value: 0.03624
+    target:
+      entity_id: input_number.month_february_fuel_cost
+  - service: input_number.set_value
+    data:
+      value: 0.03892
+    target:
+      entity_id: input_number.month_march_fuel_cost
+  - service: input_number.set_value
+    data:
+      value: 0.04222
+    target:
+      entity_id: input_number.month_april_fuel_cost
+  - service: input_number.set_value
+    data:
+      value: 0.04485
+    target:
+      entity_id: input_number.month_may_fuel_cost
+  - service: input_number.set_value
+    data:
+      value: 0.04185
+    target:
+      entity_id: input_number.month_june_fuel_cost
+  - service: input_number.set_value
+    data:
+      value: 0.04244
+    target:
+      entity_id: input_number.month_july_fuel_cost
+  - service: input_number.set_value
+    data:
+      value: 0.04143
+    target:
+      entity_id: input_number.month_august_fuel_cost
+  - service: input_number.set_value
+    data:
+      value: 0.03947
+    target:
+      entity_id: input_number.month_september_fuel_cost
+  - service: input_number.set_value
+    data:
+      value: 0.03813
+    target:
+      entity_id: input_number.month_october_fuel_cost
+  - service: input_number.set_value
+    data:
+      value: 0.03455
+    target:
+      entity_id: input_number.month_november_fuel_cost
+  - service: input_number.set_value
+    data:
+      value: 0.03225
+    target:
+      entity_id: input_number.month_december_fuel_cost
+mode: single

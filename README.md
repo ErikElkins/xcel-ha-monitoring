@@ -103,8 +103,9 @@ You should now have an entity called `sensor.current_summation_delivered_value` 
 
 ## Prices and Tariff Guide
 
-Automation for including tariffs (or off peak pricing) is under the `automations` folder. These are based off Xcel's *Time of Day Plan*, and include most holidays. 
+Automation for including tariffs (or off peak pricing) is under the `automations` folder. These are based off Xcel's *Time of Day Plan*, and include most holidays.
 
 * [End Off Peak Non-Summer Automation](automations/end-off-peak-non-summer.yml)
 * [End Off Peak Summer Automation](automations/end-off-peak-summer.yml)
 * [Start Off Peak](automations/start-off-peak.yml)
+
